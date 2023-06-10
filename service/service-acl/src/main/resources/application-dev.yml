@@ -1,0 +1,29 @@
+server:
+  port: 8201
+
+
+mybatis-plus:
+  configuration:
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #rewriteBatchedStatements=true 开启批处理, useServerPrepStmts=false关闭服务器端编译, useCompression=true 压缩数据传输
+    #    &rewriteBatchedStatements=true&useServerPrehStmts=false&useCompression=true
+    # Mysql8 JDBC连接数据库时出现的Public Key Retrieval is not allowed错误 加上：allowPublicKeyRetrieval=true
+    url: jdbc:mysql://192.168.116.130:3306/shequ-acl?useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    hikari:
+      connection-timeout: 20000
+      minimum-idle: 5
+      maximum-pool-size: 12
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      auto-commit: true
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
