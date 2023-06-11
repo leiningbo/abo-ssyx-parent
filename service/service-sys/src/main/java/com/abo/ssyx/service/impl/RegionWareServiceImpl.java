@@ -54,7 +54,7 @@ public class RegionWareServiceImpl extends ServiceImpl<RegionWareMapper, RegionW
         //判断区域是否已经开通了
         LambdaQueryWrapper<RegionWare> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(RegionWare::getRegionId,regionWare.getRegionId());
-        Integer count = baseMapper.selectCount(wrapper);
+        Long count = baseMapper.selectCount(wrapper);
         if(count > 0) { //已经存在
             //抛出自定义异常
             throw new SsyxException(ResultCodeEnum.REGION_OPEN);
