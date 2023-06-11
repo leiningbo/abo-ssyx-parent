@@ -7,9 +7,9 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 
 /**
  * @author lnb
- * @date 2023/6/11 16:29
+ * @date 2023/6/11 17:35
  */
-public class SkuRepository extends ElasticsearchRepository<SkuEs, Long> {
+public interface SkuRepository extends ElasticsearchRepository<SkuEs, Long> {
 
     //获取爆款商品
     Page<SkuEs> findByOrderByHotScoreDesc(Pageable pageable);
