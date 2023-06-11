@@ -9,6 +9,8 @@ import com.abo.ssyx.model.product.SkuImage;
 import com.abo.ssyx.model.product.SkuInfo;
 import com.abo.ssyx.mapper.SkuInfoMapper;
 import com.abo.ssyx.model.product.SkuPoster;
+import com.abo.ssyx.mq.constant.MqConst;
+import com.abo.ssyx.mq.service.RabbitService;
 import com.abo.ssyx.service.SkuAttrValueService;
 import com.abo.ssyx.service.SkuImageService;
 import com.abo.ssyx.service.SkuInfoService;
@@ -54,8 +56,8 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
     @Autowired
     private SkuPosterService skuPosterService;
 
-//    @Autowired
-//    private RabbitService rabbitService;
+    @Autowired
+    private RabbitService rabbitService;
 
 //    @Autowired
 //    private RedisTemplate redisTemplate;
@@ -186,23 +188,23 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo> impl
     //商品上下架
     @Override
     public void publish(Long skuId, Integer status) {
-//        if(status == 1) { //上架
-//            SkuInfo skuInfo = baseMapper.selectById(skuId);
-//            skuInfo.setPublishStatus(status);
-//            baseMapper.updateById(skuInfo);
-//            //整合mq把数据同步到es里面
-//            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,
-//                    MqConst.ROUTING_GOODS_UPPER,
-//                    skuId);
-//        } else { //下架
-//            SkuInfo skuInfo = baseMapper.selectById(skuId);
-//            skuInfo.setPublishStatus(status);
-//            baseMapper.updateById(skuInfo);
-//            //整合mq把数据同步到es里面
-//            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,
-//                    MqConst.ROUTING_GOODS_LOWER,
-//                    skuId);
-//        }
+        if(status == 1) { //上架
+            SkuInfo skuInfo = baseMapper.selectById(skuId);
+            skuInfo.setPublishStatus(status);
+            baseMapper.updateById(skuInfo);
+            //整合mq把数据同步到es里面
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,
+                    MqConst.ROUTING_GOODS_UPPER,
+                    skuId);
+        } else { //下架
+            SkuInfo skuInfo = baseMapper.selectById(skuId);
+            skuInfo.setPublishStatus(status);
+            baseMapper.updateById(skuInfo);
+            //整合mq把数据同步到es里面
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,
+                    MqConst.ROUTING_GOODS_LOWER,
+                    skuId);
+        }
     }
 
     //新人专享

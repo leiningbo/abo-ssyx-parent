@@ -9,6 +9,7 @@
         <module name="common-util" />
         <module name="service-product-client" />
         <module name="service-product" />
+        <module name="rabbit-util" />
         <module name="service-sys" />
         <module name="service-search" />
         <module name="model" />
@@ -21,6 +22,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common-util" options="-parameters" />
       <module name="model" options="-parameters" />
+      <module name="rabbit-util" options="-parameters" />
       <module name="service" options="-parameters" />
       <module name="service-acl" options="-parameters" />
       <module name="service-client" options="-parameters" />

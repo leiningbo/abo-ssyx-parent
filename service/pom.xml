@@ -16,7 +16,6 @@
         <module>service-sys</module>
         <module>service-product</module>
         <module>service-search</module>
-        <module>service-client</module>
     </modules>
 
     <dependencies>
