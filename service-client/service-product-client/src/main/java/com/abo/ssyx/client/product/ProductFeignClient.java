@@ -1,4 +1,4 @@
-package com.abo.ssyx;
+package com.abo.ssyx.client.product;
 
 
 import com.abo.ssyx.model.product.Category;
