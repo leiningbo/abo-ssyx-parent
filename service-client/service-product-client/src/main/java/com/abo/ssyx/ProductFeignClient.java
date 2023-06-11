@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @FeignClient(value = "service-product")
-interface ProductFeignClient {
+public interface ProductFeignClient {
 
     //根据skuId获取sku信息
     @GetMapping("/api/product/inner/getSkuInfoVo/{skuId}")
