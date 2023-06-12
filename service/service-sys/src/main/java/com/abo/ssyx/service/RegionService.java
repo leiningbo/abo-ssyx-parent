@@ -11,7 +11,7 @@ import java.util.List;
  * 地区表 服务类
  * </p>
  *
- * @author atguigu
+ * @author abo
  * @since 2023-04-03
  */
 public interface RegionService extends IService<Region> {

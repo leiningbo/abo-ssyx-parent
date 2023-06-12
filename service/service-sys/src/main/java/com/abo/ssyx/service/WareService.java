@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * 仓库表 服务类
  * </p>
  *
- * @author atguigu
+ * @author abo
  * @since 2023-04-03
  */
 public interface WareService extends IService<Ware> {

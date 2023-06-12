@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * 地区表 Mapper 接口
  * </p>
  *
- * @author atguigu
+ * @author abo
  * @since 2023-04-03
  */
 public interface RegionMapper extends BaseMapper<Region> {

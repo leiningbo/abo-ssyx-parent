@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
  * 城市仓库关联表 服务实现类
  * </p>
  *
- * @author atguigu
+ * @author abo
  * @since 2023-04-03
  */
 @Service
